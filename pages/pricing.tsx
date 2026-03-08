@@ -82,7 +82,7 @@ export default function PricingPage() {
           </div>
 
           {/* Plans grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+          <div className="plans-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16, marginBottom: 32 }}>
             {PLANS.map(p => (
               <div key={p.name} className={`relative border rounded-2xl p-6 flex flex-col ${p.color}`}>
                 {p.badge && (
@@ -144,6 +144,21 @@ export default function PricingPage() {
           </div>
 
         </div>
+      
+        <style jsx global>{`
+          @media (max-width: 1100px) {
+            .plans-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .plans-grid > div:nth-child(4),
+            .plans-grid > div:nth-child(5) { grid-column: span 1 !important; }
+          }
+          @media (max-width: 768px) {
+            .plans-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          }
+          @media (max-width: 500px) {
+            .plans-grid { grid-template-columns: 1fr !important; }
+            .faq-list .card-border { padding: 20px !important; }
+          }
+        `}</style>
       </main>
       <Footer/>
     </>
