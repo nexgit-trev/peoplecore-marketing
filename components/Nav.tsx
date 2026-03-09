@@ -61,7 +61,7 @@ export default function Nav() {
 
         {/* CTAs */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }} className="hidden md:flex">
-          <a href={`${APP}/login`} style={{
+          <a href={`${APP}/auth/login`} style={{
             color: 'rgba(255,255,255,0.5)', fontSize: 14, fontWeight: 500,
             padding: '7px 16px', borderRadius: 8, textDecoration: 'none',
             transition: 'color 0.15s',
@@ -96,7 +96,7 @@ export default function Nav() {
             }}>{l.label}</Link>
           ))}
           <div style={{ display: 'flex', gap: 10, marginTop: 16 }}>
-            <a href={`${APP}/login`} className="btn-outline" style={{ flex: 1, justifyContent: 'center' }}>Sign in</a>
+            <a href={`${APP}/auth/login`} className="btn-outline" style={{ flex: 1, justifyContent: 'center' }}>Sign in</a>
             <a href={`${APP}/register`} className="btn-gold" style={{ flex: 1, justifyContent: 'center' }}>Start Free</a>
           </div>
         </div>

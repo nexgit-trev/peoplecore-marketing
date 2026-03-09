@@ -38,7 +38,7 @@ export default function Footer() {
               { href: '/pricing',  label: 'Pricing'    },
               { href: '/security', label: 'Security'   },
               { href: `${APP}/register`, label: 'Start Free' },
-              { href: `${APP}/login`,    label: 'Sign In'    },
+              { href: `${APP}/auth/login`,    label: 'Sign In'    },
             ].map(l => (
               <a key={l.label} href={l.href} style={{
                 display: 'block', color: 'rgba(255,255,255,0.4)', fontSize: 13,
