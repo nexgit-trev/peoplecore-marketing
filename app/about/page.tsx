@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'About PeopleCore',
-  description: 'Learn about PeopleCore — the HR & Payroll platform built specifically for South African businesses and their unique compliance requirements.',
+  description: 'Learn about PeopleCore - the HR & Payroll platform built specifically for South African businesses and their unique compliance requirements.',
 }
 
 const VALUES = [

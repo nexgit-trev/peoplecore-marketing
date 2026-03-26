@@ -280,7 +280,7 @@ export default function HomePage() {
             <SectionHead
               badge="Everything You Need"
               title={<>One platform.<br />Every HR need.</>}
-              subtitle="From hiring to retiring — PeopleCore handles every aspect of your HR operations, fully aligned with South African legislation."
+              subtitle="From hiring to retiring - PeopleCore handles every aspect of your HR operations, fully aligned with South African legislation."
             />
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>

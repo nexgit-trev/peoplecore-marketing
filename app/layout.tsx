@@ -6,7 +6,7 @@ const APP_URL = 'https://peoplecore.co.za'
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
   title: {
-    default: 'PeopleCore — HR & Payroll Software for South Africa',
+    default: 'PeopleCore - HR & Payroll Software for South Africa',
     template: '%s | PeopleCore HR',
   },
   description: "South Africa's leading HR & Payroll platform. SARS IRP5, B-BBEE Skills Development, Employment Equity, Leave Management, and full SA Labour Law compliance — all in one platform.",
