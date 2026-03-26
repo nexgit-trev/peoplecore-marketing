@@ -1,83 +1,105 @@
 'use client'
 import Link from 'next/link'
 
+const G = '#C9A84C'
+
 export default function Footer() {
+  const cols = [
+    {
+      title: 'Product',
+      links: [
+        { label: 'Features',         href: '/#features'  },
+        { label: 'SA Compliance',    href: '/#compliance'},
+        { label: 'Leave Management', href: '/#features'  },
+        { label: 'Payroll & IRP5',   href: '/#features'  },
+        { label: 'Performance',      href: '/#features'  },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { label: 'About Us',  href: '/about'    },
+        { label: 'Contact',   href: '/#contact' },
+        { label: 'Register',  href: '/register' },
+        { label: 'Sign In',   href: 'https://app.peoplecore.co.za/login' },
+      ],
+    },
+  ]
+
+  const compliance = ['SARS IRP5 Ready','BCEA Compliant','LRA Compliant','EEA Compliant','B-BBEE Skills Dev','POPIA Aware']
+
   return (
-    <footer style={{ background: '#050505', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-      <div className="container-xl" style={{ padding: '64px 24px 40px' }}>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+    <footer style={{ background: '#050505', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <div style={{ maxWidth: '1320px', margin: '0 auto', padding: '80px 32px 48px' }}>
+
+        {/* Top grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '48px', marginBottom: '64px' }}>
 
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm"
-                style={{ background: 'linear-gradient(135deg, #C9A84C, #E8C97A)', color: '#0A0A0A', fontFamily: 'Syne, sans-serif' }}>
+          <div style={{ maxWidth: '280px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: `linear-gradient(135deg, ${G}, #E8C97A)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '13px', color: '#0A0A0A', fontFamily: 'DM Sans, sans-serif' }}>
                 PC
               </div>
-              <div className="font-syne font-bold text-sm tracking-widest" style={{ color: '#C9A84C' }}>
+              <div style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 800, fontSize: '13px', color: G, letterSpacing: '0.12em' }}>
                 PEOPLECORE
               </div>
             </div>
-            <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.4)' }}>
-              HR & Payroll built for South Africa. SARS compliant, B-BBEE ready, and designed for the way SA businesses work.
+            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', lineHeight: '1.75', marginBottom: '20px' }}>
+              HR & Payroll built for South Africa. SARS compliant, B-BBEE ready.
             </p>
-            <div className="flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full" style={{ background: '#22C55E' }}></span>
-              <span className="text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>All systems operational</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22C55E', boxShadow: '0 0 8px #22C55E' }} className="anim-pulse" />
+              <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)' }}>All systems operational</span>
             </div>
           </div>
 
-          {/* Product */}
+          {/* Link columns */}
+          {cols.map(col => (
+            <div key={col.title}>
+              <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: G, marginBottom: '20px' }}>
+                {col.title}
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {col.links.map(l => (
+                  <Link key={l.label} href={l.href} style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s' }}
+                    onMouseEnter={e => (e.currentTarget.style.color = G)}
+                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* Contact */}
           <div>
-            <div className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: '#C9A84C' }}>Product</div>
-            <div className="space-y-3">
-              {[
-                { label: 'Features',          href: '/#features'  },
-                { label: 'SA Compliance',     href: '/#compliance'},
-                { label: 'Leave Management',  href: '/#features'  },
-                { label: 'Payroll & IRP5',    href: '/#features'  },
-                { label: 'Performance',       href: '/#features'  },
-                { label: 'Training & Dev',    href: '/#features'  },
-              ].map(l => (
-                <Link key={l.label} href={l.href}
-                  className="block text-sm no-underline transition-colors"
-                  style={{ color: 'rgba(255,255,255,0.45)' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
-                  {l.label}
-                </Link>
-              ))}
+            <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: G, marginBottom: '20px' }}>
+              Contact
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <a href="tel:0100148757" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = G)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
+                📞 010 014 8757
+              </a>
+              <a href="mailto:info@nexbridge.co.za" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = G)}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
+                📧 info@nexbridge.co.za
+              </a>
             </div>
           </div>
 
-          {/* Company */}
+          {/* Compliance */}
           <div>
-            <div className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: '#C9A84C' }}>Company</div>
-            <div className="space-y-3">
-              {[
-                { label: 'About Us',    href: '/about'   },
-                { label: 'Contact',     href: '/contact' },
-                { label: 'Register',    href: '/register'},
-                { label: 'Sign In',     href: 'https://app.peoplecore.co.za/login' },
-              ].map(l => (
-                <Link key={l.label} href={l.href}
-                  className="block text-sm no-underline transition-colors"
-                  style={{ color: 'rgba(255,255,255,0.45)' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}>
-                  {l.label}
-                </Link>
-              ))}
+            <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: G, marginBottom: '20px' }}>
+              SA Compliance
             </div>
-          </div>
-
-          {/* SA Compliance */}
-          <div>
-            <div className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: '#C9A84C' }}>SA Compliance</div>
-            <div className="space-y-2">
-              {['SARS IRP5 Ready','BCEA Compliant','LRA Compliant','EEA Compliant','B-BBEE Skills Dev','POPIA Aware'].map(item => (
-                <div key={item} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {compliance.map(item => (
+                <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'rgba(255,255,255,0.45)' }}>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
                     <polyline points="20 6 9 17 4 12" stroke="#22C55E" strokeWidth="2.5" strokeLinecap="round"/>
                   </svg>
                   {item}
@@ -87,17 +109,18 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="divider mb-6" />
+        {/* Divider */}
+        <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent)', marginBottom: '32px' }} />
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs" style={{ color: 'rgba(255,255,255,0.25)' }}>
-            © 2025 PeopleCore · HR & Payroll · South Africa · All rights reserved
+        {/* Bottom bar */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+          <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.25)' }}>
+            © 2025 PeopleCore by Nexbridge · HR & Payroll · South Africa · All rights reserved
           </p>
-          <div className="flex items-center gap-6">
-            {['Privacy Policy','Terms of Service','Security'].map(l => (
-              <Link key={l} href="/contact" className="text-xs no-underline transition-colors"
-                style={{ color: 'rgba(255,255,255,0.25)' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#C9A84C')}
+          <div style={{ display: 'flex', gap: '24px' }}>
+            {['Privacy Policy', 'Terms of Service'].map(l => (
+              <Link key={l} href="/#contact" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.25)', transition: 'color 0.2s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = G)}
                 onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.25)')}>
                 {l}
               </Link>

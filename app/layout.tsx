@@ -10,16 +10,19 @@ export const metadata: Metadata = {
     template: '%s | PeopleCore HR',
   },
   description: "South Africa's leading HR & Payroll platform. SARS IRP5, B-BBEE Skills Development, Employment Equity, Leave Management, and full SA Labour Law compliance — all in one platform.",
-  keywords: ['HR software South Africa','payroll software South Africa','SARS IRP5','B-BBEE compliance','Employment Equity software','leave management South Africa','HR system SA','BCEA compliance','LRA compliance','South Africa HR platform','SME HR software','cloud HR South Africa','PeopleCore'],
+  keywords: ['HR software South Africa','payroll software South Africa','SARS IRP5','B-BBEE compliance','Employment Equity software','leave management South Africa','HR system SA','BCEA compliance','LRA compliance','South Africa HR platform','PeopleCore'],
   authors: [{ name: 'PeopleCore', url: APP_URL }],
   robots: { index: true, follow: true },
+  icons: {
+    icon:      [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    shortcut:  '/favicon.svg',
+    apple:     '/favicon.svg',
+  },
   openGraph: {
     type: 'website', locale: 'en_ZA', url: APP_URL, siteName: 'PeopleCore HR',
     title: 'PeopleCore — HR & Payroll Built for South Africa',
     description: "The all-in-one HR platform designed for South African businesses. SARS compliant, B-BBEE ready.",
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'PeopleCore HR Platform' }],
   },
-  twitter: { card: 'summary_large_image', title: 'PeopleCore — HR & Payroll for South Africa', description: 'SARS IRP5, B-BBEE, Employment Equity — all in one SA platform.', images: ['/og-image.png'] },
   alternates: { canonical: APP_URL },
 }
 
@@ -27,8 +30,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-ZA">
       <head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org', '@type': 'SoftwareApplication',
           name: 'PeopleCore HR', url: APP_URL,
